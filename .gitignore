@@ -1,0 +1,12 @@
+/RunkeeperAnalyser.Tests/bin
+/RunkeeperAnalyser.Tests/obj
+/RunkeeperAnalyser.Domain/bin
+/RunkeeperAnalyser.Domain/obj
+
+/RunkeeperAnalyser/bin
+
+/RunkeeperAnalyser/obj
+
+/RunkeeperAnalyser/App_Data
+
+*.suo
