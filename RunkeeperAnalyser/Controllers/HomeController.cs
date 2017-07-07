@@ -24,7 +24,7 @@ namespace RunkeeperAnalyser.Controllers
             var allExerciseSessions = _db.ExerciseSessions
                 .RkOrderBy(sortTerm);
 
-            if (Request.IsAjaxRequest())
+            if (Request != null && Request.IsAjaxRequest())
             {
                 return PartialView("_ExerciseSessions", allExerciseSessions);
             }
