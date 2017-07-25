@@ -1,5 +1,5 @@
 ﻿@using System.Web.Http.OData.Builder
-@model IEnumerable<RunkeeperAnalyser.Domain.ExerciseSession>
+@model IPagedList<ExerciseSession>
 
 @{
     ViewBag.Title = "Index";
@@ -8,6 +8,7 @@
     .bodyWrapper .leftContentContainer {
          float: left;
          width: 200px;
+         height: 600px;
          margin-right: 0px;
          --border-right: 1px solid #000000;
          -webkit-border-top-left-radius: 3px;
@@ -26,27 +27,25 @@
 <div class="bodyWrapper">
     <div class="leftContentContainer">
         
-        @using (Ajax.BeginForm(
-            new AjaxOptions {
-                HttpMethod = "get",
-                InsertionMode = InsertionMode.Replace,
-                UpdateTargetId = "exerciseSessionList" }))
-        {
+        <form method="get" action="@Url.Action("Index")" 
+              data-rka-ajax="true" data-rka-target="#exerciseSessionList">
+            
             <p>
                 <input type="submit" value="Refresh Data"/>
             </p>
             <div class="filterBox">
 
                 <h3>Sort By</h3>
-                <input id="sortByDate" type="radio" name="sortTerm" value="DateDesc" checked/>
-                <label for="sortByDate">Date Descending</label>
-                <input id="sortByDate" type="radio" name="sortTerm" value="DateAsc"/>
-                <label for="sortByDate">Date Ascending</label>
+                <input id="sortByDateDesc" type="radio" name="sortTerm" value="DateDesc" checked/>
+                <label for="sortByDateDesc">Date Descending</label>
+                <input id="sortByDateAsc" type="radio" name="sortTerm" value="DateAsc"/>
+                <label for="sortByDateAsc">Date Ascending</label>
                 <input id="sortByDistance" type="radio" name="sortTerm" value="Distance"/>
                 <label for="sortByDistance">Distance</label>
 
             </div>
-        }
+            
+        </form>
     </div>
     <div class="mainContentContainer" style="min-height:553px">
   

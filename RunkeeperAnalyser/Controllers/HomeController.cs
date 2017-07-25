@@ -3,6 +3,7 @@ using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
 using RunkeeperAnalyser.Domain;
 using RunkeeperAnalyser.Domain.Gpx;
 using RunkeeperAnalyser.Filters;
@@ -19,10 +20,11 @@ namespace RunkeeperAnalyser.Controllers
             _db = db;
         }
 
-        public ActionResult Index(string sortTerm = null)
+        public ActionResult Index(string sortTerm = null, int page = 1)
         {
             var allExerciseSessions = _db.ExerciseSessions
-                .RkOrderBy(sortTerm);
+                .RkOrderBy(sortTerm)
+                .ToPagedList(page, 20);
 
             if (Request != null && Request.IsAjaxRequest())
             {
