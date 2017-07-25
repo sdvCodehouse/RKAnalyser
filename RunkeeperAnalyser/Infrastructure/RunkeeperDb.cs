@@ -10,7 +10,7 @@ namespace RunkeeperAnalyser.Infrastructure
 {
     public class RunkeeperDb : DbContext, IRunkeeperDataSource, IRunkeeperDb
     {
-        public RunkeeperDb() : base("DefaultConnection")
+        public RunkeeperDb() : base("RKAnalyser")
         {
             
         }
