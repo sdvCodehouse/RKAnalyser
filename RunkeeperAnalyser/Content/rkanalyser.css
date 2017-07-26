@@ -1,0 +1,95 @@
+﻿     /*Basic reset*/
+   * {margin: 0; padding: 0;}
+   
+    .bodyWrapper .leftContentContainer {
+       float: left;
+       width: 200px;
+       margin-right: 0;
+       -webkit-border-top-left-radius: 3px;
+       -ms-border-top-left-radius: 3px;
+       border-top-left-radius: 3px;
+       -webkit-border-bottom-left-radius: 3px;
+       -ms-border-bottom-left-radius: 3px;
+       border-bottom-left-radius: 3px;
+   }
+
+   .leftContentContainer {
+       -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+       box-sizing: border-box;
+   }
+
+   .mainContentContainer {
+
+   }
+
+   .filterBox label{
+        display: inline-block;
+   }
+
+   .sortLabel {
+       cursor: pointer;
+   }
+
+   .sortLabel .active{
+       font-weight: bold;
+   }
+
+   .sortInput{
+       width: 30px;
+       display: none;
+   }
+
+   .filter-list-title {
+       display: block;
+       margin: 10px 0 3px -5px;
+       padding-top: 10px;
+       color: #888;
+       text-decoration: none;
+       text-transform: uppercase;
+       font-size: 1.5em;
+       cursor: pointer;
+       padding-bottom: 10px;
+       border: 1px solid lightgrey;
+       padding-left: 10px;
+   }
+
+   #accordian li {
+       list-style-type: none;
+   }
+
+   #accordian ul ul {
+       padding-top: 10px;
+   }
+
+   /*links*/
+   #accordian ul ul li a {
+       display: block;
+       /*transition for smooth hover animation*/
+       -ms-transition: all 0.15s;
+       -o-transition: all 0.15s;
+       -webkit-transition: all 0.15s;
+       transition: all 0.15s;
+   }
+
+   /*Lets hide the non active LIs by default*/
+   #accordian ul ul {
+       display: none;
+   }
+
+   .pageHeading {
+       padding-bottom: 15px;
+       font-size: 3.0em;
+   }
+   body {
+       font-size: 0.90em;
+   }
+   #body {
+       padding-bottom: 0;
+   }
+
+   footer {
+       height: 19px;
+       font-size: 1.0em;
+       padding-top: 3px;
+   }
