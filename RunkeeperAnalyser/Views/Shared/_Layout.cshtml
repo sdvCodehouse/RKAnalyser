@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title>@ViewBag.Title - My ASP.NET MVC Application</title>
+        <title>@ViewBag.Title - Run Keeper Analyser</title>
         <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
         <meta name="viewport" content="width=device-width" />
         @Styles.Render("~/Content/themes/base/css")
@@ -38,12 +38,16 @@
         <footer>
             <div class="content-wrapper">
                 <div class="float-left">
-                    <p>&copy; @DateTime.Now.Year - Runkeeper Analyser</p>
+                    <p>&copy; @DateTime.Now.Year - Hereford Securities Ltd</p>
                 </div>
             </div>
         </footer>
 
-        @Scripts.Render("~/bundles/rk")   
+        @Scripts.Render("~/bundles/rka")   
         @RenderSection("scripts", required: false)
+        
+    <!-- prefix free to deal with vendor prefixes -->
+    <script src="http://thecodeplayer.com/uploads/js/prefixfree-1.0.7.js" type="text/javascript" type="text/javascript"></script>
+
     </body>
 </html>

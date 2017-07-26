@@ -8,11 +8,12 @@ namespace RunkeeperAnalyser
         // For more information on Bundling, visit http://go.microsoft.com/fwlink/?LinkId=254725
         public static void RegisterBundles(BundleCollection bundles)
         {
-            bundles.Add(new StyleBundle("~/bundles/rk").Include(
+            bundles.Add(new StyleBundle("~/bundles/rka").Include(
                         "~/Scripts/jquery-{version}.js",
                         "~/Scripts/jquery-ui-{version}.js",
                         "~/Scripts/jquery.unobtrusive*",
                         "~/Scripts/jquery.validate*",
+                        "~/Scripts/bootstrap.js",
                         "~/Scripts/rkanalyser.js"
                         ));
 
@@ -31,7 +32,11 @@ namespace RunkeeperAnalyser
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css", "~/Content/PagedList.css"));
+            bundles.Add(new StyleBundle("~/Content/css").Include(
+                        "~/Content/bootstrap.css",
+                        "~/Content/site.css", 
+                        "~/Content/PagedList.css",
+                        "~/Content/rkanalyser.css"));
 
             bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
                         "~/Content/themes/base/jquery.ui.core.css",

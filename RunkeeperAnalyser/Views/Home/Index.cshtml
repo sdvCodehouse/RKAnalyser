@@ -1,59 +1,92 @@
-﻿@using System.Web.Http.OData.Builder
-@model IPagedList<ExerciseSession>
+﻿@model IPagedList<ExerciseSession>
 
 @{
     ViewBag.Title = "Index";
 }
-<style type="text/css">
-    .bodyWrapper .leftContentContainer {
-         float: left;
-         width: 200px;
-         height: 600px;
-         margin-right: 0px;
-         --border-right: 1px solid #000000;
-         -webkit-border-top-left-radius: 3px;
-         border-top-left-radius: 3px;
-         -webkit-border-bottom-left-radius: 3px;
-         border-bottom-left-radius: 3px;
-     }
-    .leftContentContainer {
-        -webkit-box-sizing: border-box;
-        box-sizing: border-box;
-    }
-</style>
 
-<h2>Exercise Sessions</h2>
+<h1 class="pageHeading">Exercise Sessions</h1>
 
-<div class="bodyWrapper">
-    <div class="leftContentContainer">
-        
-        <form method="get" action="@Url.Action("Index")" 
+<div class="bodyWrapper row">
+    <div class="leftContentContainer col-md-3 col-xs-12">
+
+        <form method="get" action="@Url.Action("Index")"
               data-rka-ajax="true" data-rka-target="#exerciseSessionList">
             
-            <p>
-                <input type="submit" value="Refresh Data"/>
-            </p>
             <div class="filterBox">
-
-                <h3>Sort By</h3>
-                <input id="sortByDateDesc" type="radio" name="sortTerm" value="DateDesc" checked/>
-                <label for="sortByDateDesc">Date Descending</label>
-                <input id="sortByDateAsc" type="radio" name="sortTerm" value="DateAsc"/>
-                <label for="sortByDateAsc">Date Ascending</label>
-                <input id="sortByDistance" type="radio" name="sortTerm" value="Distance"/>
-                <label for="sortByDistance">Distance</label>
-
+                <div id="accordian">
+                    <ul>
+                        <li>
+                            <h3 class="filter-list-title">Sort By</h3>
+                            <ul>
+                                <li>
+                                    <div class="form-group">
+                                        <label class="sortLabel" for="sortByDateDesc">Date Descending</label>
+                                        <input class="sortInput" id="sortByDateDesc" type="radio" name="sortTerm" value="DateDesc" checked />
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="form-group">
+                                        <label class="sortLabel" for="sortByDateAsc">Date Ascending</label>
+                                        <input class="sortInput" id="sortByDateAsc" type="radio" name="sortTerm" value="DateAsc"/>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="form-group">
+                                        <label class="sortLabel" for="sortByDistance">Distance</label>
+                                        <input class="sortInput" id="sortByDistance" type="radio" name="sortTerm" value="Distance"/>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <h3 class="filter-list-title">Distance</h3>
+                            <ul>
+                                <li>
+                                    <div class="form-group">
+                                        <label>From</label>
+                                        <input type="text" class="form-control"/>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="form-group">
+                                        <label>To</label>
+                                        <input type="text" class="form-control"/>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <h3 class="filter-list-title">Dates</h3>
+                            <ul>
+                                <li>
+                                    <div class="form-group">
+                                        <label>From</label>
+                                        <input type="text" class="form-control"/>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="form-group">
+                                        <label>To</label>
+                                        <input type="text" class="form-control"/>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <p>
+                    <input type="submit" class="btn" value="Refresh Data" />
+                </p>
             </div>
-            
         </form>
     </div>
-    <div class="mainContentContainer" style="min-height:553px">
-  
+    <div class="mainContentContainer col-md-9 col-xs-12">
+
         @Html.Partial("_ExerciseSessions", Model)
 
     </div>
 </div>
 
 @section Scripts {
-    
+
 }
