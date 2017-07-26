@@ -58,7 +58,7 @@
                     @Html.DisplayFor(modelItem => item.Calories)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Speed)
+                    @Html.Partial("_SpeedTimeSpan", item.Speed)
                 </td>
             </tr>
         }

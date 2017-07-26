@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlTypes;
 using RunkeeperAnalyser.Domain.Gpx;
 using RunkeeperAnalyser.Domain.Processors;
 

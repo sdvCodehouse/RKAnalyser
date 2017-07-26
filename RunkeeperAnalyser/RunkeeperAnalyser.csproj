@@ -345,9 +345,11 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\_ExerciseSessions.cshtml" />
+    <Content Include="Views\Shared\_SpeedTimeSpan.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\Imported_Files\" />
+    <Folder Include="App_Data\" />
+    <Folder Include="Views\Shared\DisplayTemplates\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
