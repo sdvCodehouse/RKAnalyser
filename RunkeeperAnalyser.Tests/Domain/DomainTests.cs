@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using NUnit.Framework;
 using RunkeeperAnalyser.Domain;
@@ -6,6 +7,7 @@ using RunkeeperAnalyser.Domain;
 namespace RunkeeperAnalyser.Tests.Domain
 {
     [TestFixture]
+    [SuppressMessage("ReSharper", "InconsistentNaming")]
     public class DomainTests
     {
         [Test]

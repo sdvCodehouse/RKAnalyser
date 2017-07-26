@@ -47,13 +47,14 @@
     <Compile Include="Gpx\GpxReader.cs" />
     <Compile Include="Gpx\GpxWriter.cs" />
     <Compile Include="IRunkeeperDataSource.cs" />
+    <Compile Include="Processors\ActivityProcessor.cs" />
     <Compile Include="Processors\CaloriesProcessor.cs" />
     <Compile Include="Processors\DistanceProcessor.cs" />
     <Compile Include="Processors\DurationProcessor.cs" />
     <Compile Include="Processors\ElevationProcessor.cs" />
     <Compile Include="Processors\SpeedProcessor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SessionType.cs" />
+    <Compile Include="ActivityType.cs" />
     <Compile Include="ExerciseSession.cs" />
     <Compile Include="TrackPoint.cs" />
     <Compile Include="TrackSegment.cs" />
