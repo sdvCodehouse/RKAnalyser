@@ -1,4 +1,4 @@
-﻿@model IPagedList<ExerciseSession>
+﻿@model IndexViewModel
 
 @{
     ViewBag.Title = "Index";
@@ -33,7 +33,7 @@
                                 <li>
                                     <div class="form-group">
                                         <label class="sortLabel" for="sortByDistance">Distance</label>
-                                        <input class="sortInput" id="sortByDistance" type="radio" name="sortTerm" value="Distance"/>
+                                        <input class="sortInput" id="sortByDistance" type="radio" name="sortTerm" value="Distance" />
                                     </div>
                                 </li>
                             </ul>
@@ -43,14 +43,16 @@
                             <ul>
                                 <li>
                                     <div class="form-group">
-                                        <label>From</label>
-                                        <input type="text" class="form-control"/>
+                                        @Html.LabelFor(m => m.DistanceFrom)
+                                        @Html.TextBoxFor(m => m.DistanceFrom, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.DistanceFrom)
                                     </div>
                                 </li>
                                 <li>
                                     <div class="form-group">
-                                        <label>To</label>
-                                        <input type="text" class="form-control"/>
+                                        @Html.LabelFor(m => m.DistanceTo)
+                                        @Html.TextBoxFor(m => m.DistanceTo, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.DistanceTo)
                                     </div>
                                 </li>
                             </ul>
@@ -60,14 +62,16 @@
                             <ul>
                                 <li>
                                     <div class="form-group">
-                                        <label>From</label>
-                                        <input type="text" class="form-control"/>
+                                        @Html.LabelFor(m => m.DateFrom)
+                                        @Html.TextBoxFor(m => m.DateFrom, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.DateFrom)
                                     </div>
                                 </li>
                                 <li>
                                     <div class="form-group">
-                                        <label>To</label>
-                                        <input type="text" class="form-control"/>
+                                        @Html.LabelFor(m => m.DateTo)
+                                        @Html.TextBoxFor(m => m.DateTo, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.DateTo)
                                     </div>
                                 </li>
                             </ul>
@@ -82,7 +86,7 @@
     </div>
     <div class="mainContentContainer col-md-9 col-xs-12">
 
-        @Html.Partial("_ExerciseSessions", Model)
+        @Html.Partial("_ExerciseSessions", Model.ExerciseSessions)
 
     </div>
 </div>
