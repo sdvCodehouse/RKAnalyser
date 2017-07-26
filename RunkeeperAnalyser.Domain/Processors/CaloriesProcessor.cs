@@ -11,7 +11,7 @@ namespace RunkeeperAnalyser.Domain.Processors
             double weight = 90;
             TimeSpan duration = exerciseSession.Duration ?? new TimeSpan();
 
-            if (exerciseSession.SessionType == SessionType.Cycle)
+            if (exerciseSession.ActivityType == ActivityType.Cycle)
             {
                 met = 10; // this is the met for cycling at between 14 - 15.5 mph
             }

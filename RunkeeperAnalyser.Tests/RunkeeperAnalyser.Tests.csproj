@@ -124,6 +124,7 @@
     <Compile Include="Domain\DomainTests.cs" />
     <Compile Include="Domain\FilterTests.cs" />
     <Compile Include="Domain\GpxTests.cs" />
+    <Compile Include="Domain\ProcessorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
   </ItemGroup>

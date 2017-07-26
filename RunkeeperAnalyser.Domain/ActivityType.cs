@@ -5,8 +5,9 @@ using System.Text;
 
 namespace RunkeeperAnalyser.Domain
 {
-    public enum SessionType
+    public enum ActivityType
     {
+        Unknown,
         Run,
         Cycle
     }

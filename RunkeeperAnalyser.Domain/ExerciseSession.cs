@@ -15,7 +15,7 @@ namespace RunkeeperAnalyser.Domain
 
         public virtual double Distance { get; set; }
         public virtual TimeSpan? Duration { get; set; }
-        public virtual SessionType SessionType { get; set; }
+        public virtual ActivityType ActivityType { get; set; }
         public virtual double? Elevation { get; set; }
         public virtual int Calories { get; set; }
         public virtual TimeSpan Speed { get; set; }
@@ -39,6 +39,7 @@ namespace RunkeeperAnalyser.Domain
             exerciseSession.Distance = DistanceProcessor.SessionDistance(trackSegments);
             exerciseSession.Calories = CaloriesProcessor.GetCaloriesBurned(exerciseSession);
             exerciseSession.Speed = SpeedProcessor.GetAverageSpeed(exerciseSession);
+            exerciseSession.ActivityType = ActivityProcessor.GetActivityType(exerciseSession);
             exerciseSession.TrackSegments = trackSegments;
 
             return exerciseSession;
