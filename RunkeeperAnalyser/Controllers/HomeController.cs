@@ -8,6 +8,7 @@ using RunkeeperAnalyser.Domain;
 using RunkeeperAnalyser.Domain.Gpx;
 using RunkeeperAnalyser.Filters;
 using RunkeeperAnalyser.Infrastructure;
+using RunkeeperAnalyser.ViewModels;
 
 namespace RunkeeperAnalyser.Controllers
 {
@@ -22,16 +23,20 @@ namespace RunkeeperAnalyser.Controllers
 
         public ActionResult Index(string sortTerm = null, int page = 1)
         {
+            var indexVm = new IndexViewModel(Request.QueryString);
+
             var allExerciseSessions = _db.ExerciseSessions
-                .RkOrderBy(sortTerm)
-                .ToPagedList(page, 20);
+                .DistanceRange(indexVm.DistanceFrom, indexVm.DistanceTo)
+                .DateRange(indexVm.DateFrom, indexVm.DateTo)
+                .RkOrderBy(indexVm.SortTerm)
+                .ToPagedList(page, 20); // todo make page size configurable
 
             if (Request != null && Request.IsAjaxRequest())
             {
                 return PartialView("_ExerciseSessions", allExerciseSessions);
             }
 
-            return View(allExerciseSessions);
+            return View(new IndexViewModel {ExerciseSessions = allExerciseSessions});
         }
 
         public ActionResult Import()
