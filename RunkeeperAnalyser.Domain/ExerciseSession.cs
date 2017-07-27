@@ -17,7 +17,8 @@ namespace RunkeeperAnalyser.Domain
         public virtual ActivityType ActivityType { get; set; }
         public virtual double? Elevation { get; set; }
         public virtual int Calories { get; set; }
-        public virtual TimeSpan Speed { get; set; }
+        public virtual TimeSpan Pace { get; set; }
+        public virtual double Speed { get; set; }
 
         public static ExerciseSession Create(GpxTrack track)
         {
@@ -37,15 +38,14 @@ namespace RunkeeperAnalyser.Domain
             exerciseSession.Duration = DurationProcessor.SessionDuration(trackSegments);
             exerciseSession.Distance = DistanceProcessor.SessionDistance(trackSegments);
             exerciseSession.Calories = CaloriesProcessor.GetCaloriesBurned(exerciseSession);
-            exerciseSession.Speed = SpeedProcessor.GetAverageSpeed(exerciseSession);
+            exerciseSession.Pace = PaceProcessor.GetAveragePace(exerciseSession);
             exerciseSession.ActivityType = ActivityProcessor.GetActivityType(exerciseSession);
+            exerciseSession.Speed = SpeedProcessor.GetAverageSpeed(exerciseSession);
             exerciseSession.TrackSegments = trackSegments;
 
             return exerciseSession;
         }
 
-        
-        
     }
 }
 

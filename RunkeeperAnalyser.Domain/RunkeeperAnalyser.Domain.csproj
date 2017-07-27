@@ -53,6 +53,7 @@
     <Compile Include="Processors\DistanceProcessor.cs" />
     <Compile Include="Processors\DurationProcessor.cs" />
     <Compile Include="Processors\ElevationProcessor.cs" />
+    <Compile Include="Processors\PaceProcessor.cs" />
     <Compile Include="Processors\SpeedProcessor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ActivityType.cs" />

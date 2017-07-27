@@ -21,7 +21,7 @@ namespace RunkeeperAnalyser.Migrations
                 {
                     Name = "Test ExerciseSession",
                     Time = DateTime.UtcNow,
-                    Speed = new TimeSpan(),
+                    Pace = new TimeSpan(),
                     TrackSegments = new[]
                     {
                         new TrackSegment()

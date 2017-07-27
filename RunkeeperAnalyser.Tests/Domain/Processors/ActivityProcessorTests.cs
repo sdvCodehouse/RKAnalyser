@@ -1,14 +1,13 @@
-﻿using System;
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 using NUnit.Framework;
 using RunkeeperAnalyser.Domain;
 using RunkeeperAnalyser.Domain.Processors;
 
-namespace RunkeeperAnalyser.Tests.Domain
+namespace RunkeeperAnalyser.Tests.Domain.Processors
 {
     [TestFixture]
     [SuppressMessage("ReSharper", "InconsistentNaming")]
-    public class ProcessorTests
+    public class ActivityProcessorTests
     {
         [Test]
         public void ActivityProcessor_Can_Set_RunningActivityType()
