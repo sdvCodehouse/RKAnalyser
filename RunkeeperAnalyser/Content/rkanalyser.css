@@ -31,8 +31,14 @@
        cursor: pointer;
    }
 
-   .sortLabel .active{
+   .sortLabel.active{
        font-weight: bold;
+   }
+
+   .activityLabel {
+       padding-top: 1px;
+       width: 60px;
+       vertical-align: top;
    }
 
    .sortInput{

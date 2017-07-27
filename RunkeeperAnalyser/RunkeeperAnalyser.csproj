@@ -347,7 +347,8 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\_ExerciseSessions.cshtml" />
-    <Content Include="Views\Shared\_SpeedTimeSpan.cshtml" />
+    <Content Include="Views\Home\_SpeedTimeSpan.cshtml" />
+    <Content Include="Views\Home\_ActivitiesFilter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
