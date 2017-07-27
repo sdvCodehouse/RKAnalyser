@@ -4,11 +4,10 @@ namespace RunkeeperAnalyser.Domain.Processors
 {
     public static class SpeedProcessor
     {
-        internal static TimeSpan GetAverageSpeed(ExerciseSession exerciseSession)
+        public static double GetAverageSpeed(ExerciseSession exerciseSession)
         {
             TimeSpan duration = exerciseSession.Duration ?? new TimeSpan();
-            return TimeSpan.FromMinutes(duration.TotalMinutes / exerciseSession.Distance);
+            return exerciseSession.Distance / duration.TotalHours;
         }
-
     }
 }
