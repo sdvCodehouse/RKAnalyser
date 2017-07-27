@@ -63,14 +63,16 @@
                                 <li>
                                     <div class="form-group">
                                         @Html.LabelFor(m => m.DateFrom)
-                                        @Html.TextBoxFor(m => m.DateFrom, new { @class = "form-control" })
+                                        @*@Html.TextBoxFor(m => m.DateFrom, new { @class = "form-control" })*@
+                                        <input type="date" class="form-control" name="dateFrom" />
                                         @Html.ValidationMessageFor(m => m.DateFrom)
                                     </div>
                                 </li>
                                 <li>
                                     <div class="form-group">
                                         @Html.LabelFor(m => m.DateTo)
-                                        @Html.TextBoxFor(m => m.DateTo, new { @class = "form-control" })
+                                        @*@Html.TextBoxFor(m => m.DateTo, new { @class = "form-control" })*@
+                                        <input type="date" class="form-control" name="dateTo"/>
                                         @Html.ValidationMessageFor(m => m.DateTo)
                                     </div>
                                 </li>
@@ -80,6 +82,7 @@
                 </div>
                 <p>
                     <input type="submit" class="btn" value="Refresh Data" />
+                    <a href="/">Reset Filters</a>
                 </p>
             </div>
         </form>

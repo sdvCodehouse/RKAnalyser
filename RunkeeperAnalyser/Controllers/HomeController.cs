@@ -31,12 +31,14 @@ namespace RunkeeperAnalyser.Controllers
                 .RkOrderBy(indexVm.SortTerm)
                 .ToPagedList(page, 20); // todo make page size configurable
 
+            indexVm.ExerciseSessions = allExerciseSessions;
+
             if (Request != null && Request.IsAjaxRequest())
             {
-                return PartialView("_ExerciseSessions", allExerciseSessions);
+                return PartialView("_ExerciseSessions", indexVm.ExerciseSessions);
             }
 
-            return View(new IndexViewModel {ExerciseSessions = allExerciseSessions});
+            return View(indexVm);
         }
 
         public ActionResult Import()
