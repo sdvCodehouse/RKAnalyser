@@ -40,10 +40,10 @@ namespace RunkeeperAnalyser.Tests.Controllers
         public void About()
         {
             // Arrange
-            HomeController controller = new HomeController(_fakeDb);
+            ImportController controller = new ImportController(_fakeDb);
 
             // Act
-            ViewResult result = controller.Import() as ViewResult;
+            ViewResult result = controller.Index() as ViewResult;
 
             // Assert
             Assert.IsNotNull(result);
