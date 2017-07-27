@@ -1,31 +1,42 @@
 ﻿using System;
 using System.Collections.Specialized;
 using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
 using PagedList;
 using RunkeeperAnalyser.Domain;
+using RunkeeperAnalyser.Domain.Extensions;
 
 namespace RunkeeperAnalyser.ViewModels
 {
     public class IndexViewModel
     {
-        public IndexViewModel(){}
+        private string _sortTerm;
+
+        public IndexViewModel() {}
 
         public IndexViewModel(NameValueCollection queryString)
         {
             if (queryString != null)
             {
-                DistanceFrom = GetNullableInt(queryString["DistanceFrom"]);
-                DistanceTo = GetNullableInt(queryString["DistanceTo"]);
+                DistanceFrom = queryString["DistanceFrom"].ToNullableInt();
+                DistanceTo = queryString["DistanceTo"].ToNullableInt();
 
-                SortTerm = queryString["sortTerm"] ?? "DateDesc";
+                SortTerm = queryString["sortTerm"];
 
-                DateFrom = GetNullableDateTime(queryString["DateFrom"]);
-                DateTo = GetNullableDateTime(queryString["DateTo"]);
+                DateFrom = queryString["DateFrom"].ToNullableDateTime();
+                DateTo = queryString["DateTo"].ToNullableDateTime();
             }
         }
 
-        public string SortTerm { get; set; }
+        public string SortTerm
+        {
+            get
+            {
+                if (string.IsNullOrWhiteSpace(_sortTerm))
+                    _sortTerm = "DateDesc";  // default sort order
+                return _sortTerm;
+            }
+            set { _sortTerm = value; }
+        }
 
         public IPagedList<ExerciseSession> ExerciseSessions { get; set; }
 
@@ -41,22 +52,6 @@ namespace RunkeeperAnalyser.ViewModels
         [DisplayName("To")]
         public DateTime? DateTo { get; set; }
 
-        public int? GetNullableInt(string value)
-        {
-            int result;
-            if (!string.IsNullOrWhiteSpace(value) && int.TryParse(value, out result))
-                return result;
-
-            return null;
-        }
-
-        public DateTime? GetNullableDateTime(string value)
-        {
-            DateTime result;
-            if (!string.IsNullOrWhiteSpace(value) && DateTime.TryParse(value, out result))
-                return result;
-
-            return null;
-        }
+        
     }
 }

@@ -67,7 +67,7 @@
     
     <div class="pagedList" data-rka-target="#exerciseSessionList">
         @Html.PagedListPager(Model, page => Url.Action("Index", new { page }), 
-            PagedListRenderOptions.MinimalWithPageCountText)
+            PagedListRenderOptions.MinimalWithItemCountText)
     </div>
 
 </div>
