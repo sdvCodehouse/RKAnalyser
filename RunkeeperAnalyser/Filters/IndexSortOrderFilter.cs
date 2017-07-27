@@ -11,8 +11,17 @@ namespace RunkeeperAnalyser.Filters
         {
             switch (sortTerm)
             {
-                case "Distance":
+                case "SpeedAsc":
+                    return orderBy.OrderBy(s => s.Pace);
+
+                case "SpeedDesc":
+                    return orderBy.OrderByDescending(s => s.Pace);
+
+                case "DistanceAsc":
                     return orderBy.OrderBy(s => s.Distance);
+
+                case "DistanceDesc":
+                    return orderBy.OrderByDescending(s => s.Distance);
 
                 case "DateAsc":
                     return orderBy.OrderBy(s => s.Time);
