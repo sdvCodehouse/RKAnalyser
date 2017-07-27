@@ -59,7 +59,7 @@ namespace RunkeeperAnalyser.Tests.Domain
         [Test]
         public void DistanceSortTermReturnsCorrectSort()
         {
-            var sut = _exerciseSessions.RkOrderBy("Distance");
+            var sut = _exerciseSessions.RkOrderBy("DistanceAsc");
 
             Assert.That(sut.ToArray().First().Distance, Is.EqualTo(100));
             Assert.That(sut.ToArray().Last().Distance, Is.EqualTo(500));

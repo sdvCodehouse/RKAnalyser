@@ -129,6 +129,7 @@
     <Compile Include="Domain\Processors\PaceProcessorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
+    <Compile Include="ViewModels\IndexViewModelTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />

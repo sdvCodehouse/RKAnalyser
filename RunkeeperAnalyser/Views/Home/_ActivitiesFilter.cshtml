@@ -1,0 +1,12 @@
+﻿@using RunkeeperAnalyser.Filters
+@model IEnumerable<ActivityType>
+           
+@foreach (var activity in Model)
+{
+    <li>
+        <div class="form-group">
+            <label class="activityLabel" for="showRun">@activity</label>
+            <input id="showRun" type="checkbox" name="activities" value="@activity.GetValue()" />
+        </div>
+    </li>
+}

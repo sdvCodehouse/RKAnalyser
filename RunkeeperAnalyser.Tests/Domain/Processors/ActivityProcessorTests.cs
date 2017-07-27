@@ -15,7 +15,7 @@ namespace RunkeeperAnalyser.Tests.Domain.Processors
             var exerciseSession = new ExerciseSession {Name = "[Running 20/7/17 12:25 pm]"};
             ActivityType result = ActivityProcessor.GetActivityType(exerciseSession);
 
-            Assert.That(result, Is.EqualTo(ActivityType.Run));
+            Assert.That(result, Is.EqualTo(ActivityType.Running));
         }
         [Test]
         public void ActivityProcessor_Can_Set_CyclingActivityType()
@@ -23,7 +23,7 @@ namespace RunkeeperAnalyser.Tests.Domain.Processors
             var exerciseSession = new ExerciseSession {Name = "[Cycling 9/7/17 7:53 am]]"};
             ActivityType result = ActivityProcessor.GetActivityType(exerciseSession);
 
-            Assert.That(result, Is.EqualTo(ActivityType.Cycle));
+            Assert.That(result, Is.EqualTo(ActivityType.Cycling));
         }
         [Test]
         public void ActivityProcessor_Can_Set_UnknownType_For_EmptyName()

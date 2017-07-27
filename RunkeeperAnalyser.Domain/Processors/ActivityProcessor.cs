@@ -9,8 +9,8 @@
                 // to do consider using reg from settings for matching, in order to extend to other gpx types
                 // update: in fact the regex pattern should be part of the gpx setup, with a seperate gpx template
                 // for each type of import. E.g. Strava, Garmin, Runkeeper, etc
-                if (exerciseSession.Name.Contains("Running")) return ActivityType.Run;
-                if (exerciseSession.Name.Contains("Cycling")) return ActivityType.Cycle;
+                if (exerciseSession.Name.Contains("Running")) return ActivityType.Running;
+                if (exerciseSession.Name.Contains("Cycling")) return ActivityType.Cycling;
             }
 
             return ActivityType.Unknown;
