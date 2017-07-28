@@ -11,8 +11,17 @@ namespace RunkeeperAnalyser.Filters
         {
             switch (sortTerm)
             {
-                case "Distance":
+                case "SpeedAsc":
+                    return orderBy.OrderBy(s => s.Speed);
+
+                case "SpeedDesc":
+                    return orderBy.OrderByDescending(s => s.Speed);
+
+                case "DistanceAsc":
                     return orderBy.OrderBy(s => s.Distance);
+
+                case "DistanceDesc":
+                    return orderBy.OrderByDescending(s => s.Distance);
 
                 case "DateAsc":
                     return orderBy.OrderBy(s => s.Time);
@@ -40,6 +49,18 @@ namespace RunkeeperAnalyser.Filters
                 return where.Where(s => true);
             }
             return where.Where(s => s.Time >= dateFrom && s.Time <= dateTo);
+        }
+
+        public static IEnumerable<T> ForActivities<T>(this IEnumerable<T> where, IEnumerable<string> activities)
+            where T : ExerciseSession
+        {
+            IEnumerable<T> newWhere = where;
+            if (activities == null || activities.First() == "showAll")
+            {
+                return where.Where(s => true);
+            }
+
+            return where.Where(s => activities.Contains(((int) s.ActivityType).ToString()));
         }
     }
 

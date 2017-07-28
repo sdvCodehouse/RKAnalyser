@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using PagedList;
@@ -10,6 +11,7 @@ namespace RunkeeperAnalyser.ViewModels
     public class IndexViewModel
     {
         private string _sortTerm;
+        private IEnumerable<string> _activities;
 
         public IndexViewModel() {}
 
@@ -24,20 +26,16 @@ namespace RunkeeperAnalyser.ViewModels
 
                 DateFrom = queryString["DateFrom"].ToNullableDateTime();
                 DateTo = queryString["DateTo"].ToNullableDateTime();
+
+                if (!string.IsNullOrWhiteSpace(queryString["activities"]))
+                {
+                    _activities = queryString["activities"].Split(",".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+                }
+
             }
         }
 
-        public string SortTerm
-        {
-            get
-            {
-                if (string.IsNullOrWhiteSpace(_sortTerm))
-                    _sortTerm = "DateDesc";  // default sort order
-                return _sortTerm;
-            }
-            set { _sortTerm = value; }
-        }
-
+        
         public IPagedList<ExerciseSession> ExerciseSessions { get; set; }
 
         [DisplayName("From")]
@@ -52,6 +50,23 @@ namespace RunkeeperAnalyser.ViewModels
         [DisplayName("To")]
         public DateTime? DateTo { get; set; }
 
-        
+        public string SortTerm
+        {
+            get
+            {
+                if (string.IsNullOrWhiteSpace(_sortTerm))
+                    _sortTerm = "DateDesc";  // default sort order
+                return _sortTerm;
+            }
+            set { _sortTerm = value; }
+        }
+
+        public IEnumerable<string> Activities
+        {
+            get { return _activities ?? (_activities = new[] {"showAll"}); }
+            set { _activities = value; }
+        }
+
+        public IEnumerable<ActivityType> ActivityTypes { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Linq;
+using System.Web.Mvc;
 using PagedList;
 using RunkeeperAnalyser.Filters;
 using RunkeeperAnalyser.Infrastructure;
@@ -19,13 +20,17 @@ namespace RunkeeperAnalyser.Controllers
         {
             var indexVm = Request != null ? new IndexViewModel(Request.QueryString) : new IndexViewModel();
 
-            var allExerciseSessions = _db.ExerciseSessions
+            var pagedExerciseSessions = _db.ExerciseSessions
                 .DistanceRange(indexVm.DistanceFrom, indexVm.DistanceTo)
                 .DateRange(indexVm.DateFrom, indexVm.DateTo)
+                .ForActivities(indexVm.Activities)
                 .RkOrderBy(indexVm.SortTerm)
                 .ToPagedList(page, 20); // todo make page size configurable
 
-            indexVm.ExerciseSessions = allExerciseSessions;
+            indexVm.ExerciseSessions = pagedExerciseSessions;
+
+            indexVm.ActivityTypes = _db.ExerciseSessions.GroupBy(m => m.ActivityType)
+                .Select(g => g.Key);
 
             if (Request != null && Request.IsAjaxRequest())
             {
@@ -40,6 +45,16 @@ namespace RunkeeperAnalyser.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        public ActionResult Detail(int id)
+        {
+            var exerciseSession = _db.ExerciseSessions.FirstOrDefault(s => s.Id == id);
+            if (exerciseSession == null)
+            {
+                return RedirectToAction("Index");
+            }
+            return View(exerciseSession);
         }
 
         protected override void Dispose(bool disposing)

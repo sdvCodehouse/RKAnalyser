@@ -10,3 +10,5 @@
 /RunkeeperAnalyser/App_Data
 
 *.suo
+
+/RunkeeperAnalyser/application.log

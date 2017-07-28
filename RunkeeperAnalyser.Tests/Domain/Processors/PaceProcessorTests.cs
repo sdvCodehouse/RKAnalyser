@@ -16,11 +16,11 @@ namespace RunkeeperAnalyser.Tests.Domain.Processors
         [OneTimeSetUp]
         public void OnceBeforeTests()
         {
-            _runningSession = new ExerciseSession { ActivityType = ActivityType.Run };
+            _runningSession = new ExerciseSession { ActivityType = ActivityType.Running };
             _runningSession.Duration = new TimeSpan(0, 0, 30, 0);
             _runningSession.Distance = 6;
 
-            _cyclingSession = new ExerciseSession { ActivityType = ActivityType.Cycle };
+            _cyclingSession = new ExerciseSession { ActivityType = ActivityType.Cycling };
             _cyclingSession.Duration = new TimeSpan(0, 0, 30, 0);
             _cyclingSession.Distance = 12;
         }
