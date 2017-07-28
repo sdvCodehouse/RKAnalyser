@@ -47,6 +47,16 @@ namespace RunkeeperAnalyser.Controllers
             return View();
         }
 
+        public ActionResult Detail(int id)
+        {
+            var exerciseSession = _db.ExerciseSessions.FirstOrDefault(s => s.Id == id);
+            if (exerciseSession == null)
+            {
+                return RedirectToAction("Index");
+            }
+            return View(exerciseSession);
+        }
+
         protected override void Dispose(bool disposing)
         {
             _db.Dispose();

@@ -1,0 +1,89 @@
+﻿@model RunkeeperAnalyser.Domain.ExerciseSession
+
+@{
+    ViewBag.Title = "Detail";
+}
+<div class="container col-md-6">
+    <h2>@Model.Name</h2>
+
+
+    <fieldset class="">
+        <legend>ExerciseSession</legend>
+        <div class="form-inline">
+            <div class="form-group">
+                <div class="display-label h6">
+                    @Html.DisplayNameFor(model => model.Name)
+                </div>
+                <div class="display-field form-control">
+                    @Html.DisplayFor(model => model.Name)
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="display-label h6">
+                    @Html.DisplayNameFor(model => model.Time)
+                </div>
+                <div class="display-field form-control">
+                    @Html.DisplayFor(model => model.Time)
+                </div>
+            </div>
+        </div>
+        <div class="form-inline">
+            <div class="form-group">
+                <div class="display-label h6">
+                    @Html.DisplayNameFor(model => model.Distance)
+                </div>
+                <div class="display-field form-control">
+                    @Html.DisplayFor(model => model.Distance)
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="display-label h6">
+                    @Html.DisplayNameFor(model => model.Duration)
+                </div>
+                <div class="display-field form-control">
+                    @Html.DisplayFor(model => model.Duration)
+                </div>
+            </div>
+
+        <div class="form-group">
+            <div class="display-label h6">
+                @Html.DisplayNameFor(model => model.Elevation)
+            </div>
+            <div class="display-field form-control">
+                @Html.DisplayFor(model => model.Elevation)
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="display-label h6">
+                @Html.DisplayNameFor(model => model.Calories)
+            </div>
+            <div class="display-field form-control">
+                @Html.DisplayFor(model => model.Calories)
+            </div>
+        </div>
+        </div>
+        <div class="form-group">
+            <div class="display-label h6">
+                @Html.DisplayNameFor(model => model.Pace)
+            </div>
+            <div class="display-field form-control">
+                @Html.DisplayFor(model => model.Pace)
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="display-label h6">
+                @Html.DisplayNameFor(model => model.Speed)
+            </div>
+            <div class="display-field form-control">
+                @Html.DisplayFor(model => model.Speed)
+            </div>
+        </div>
+    </fieldset>
+    <p>
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</div>
+<div class="col-md-6 panel" style="height:400px">
+    <p>Show Map here</p>
+
+</div>
