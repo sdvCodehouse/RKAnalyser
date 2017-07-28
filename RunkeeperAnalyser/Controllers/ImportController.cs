@@ -2,6 +2,7 @@
 using System.Data.Entity.Migrations;
 using System.Web;
 using System.Web.Mvc;
+using log4net;
 using RunkeeperAnalyser.Domain;
 using RunkeeperAnalyser.Domain.Gpx;
 using RunkeeperAnalyser.Infrastructure;
@@ -11,9 +12,11 @@ namespace RunkeeperAnalyser.Controllers
     public class ImportController : Controller
     {
         private IRunkeeperDb _db;
+        private static ILog _log;
 
         public ImportController(IRunkeeperDb db)
         {
+            _log = LogManager.GetLogger(GetType());
             _db = db;
         }
 
@@ -57,8 +60,7 @@ namespace RunkeeperAnalyser.Controllers
             }
             catch (Exception e)
             {
-                //todo need to add logging
-                // go to next file
+                _log.Error(string.Format("Failed to import file {0} with message: {1}", file.FileName, e.Message));
             }
 
         }
