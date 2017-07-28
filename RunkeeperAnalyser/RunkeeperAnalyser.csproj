@@ -354,6 +354,7 @@
     <Content Include="Views\Home\_ExerciseSessions.cshtml" />
     <Content Include="Views\Home\_SpeedTimeSpan.cshtml" />
     <Content Include="Views\Home\_ActivitiesFilter.cshtml" />
+    <Content Include="Views\Home\Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
